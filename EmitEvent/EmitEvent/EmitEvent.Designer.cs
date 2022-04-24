@@ -38,18 +38,20 @@
             this.numMouseTo = new System.Windows.Forms.NumericUpDown();
             this.labelMouseFrom = new System.Windows.Forms.Label();
             this.numMouseFrom = new System.Windows.Forms.NumericUpDown();
-            this.labelDuration = new System.Windows.Forms.Label();
-            this.numDuration = new System.Windows.Forms.NumericUpDown();
+            this.labelInterval = new System.Windows.Forms.Label();
+            this.numInterval = new System.Windows.Forms.NumericUpDown();
             this.labelHours = new System.Windows.Forms.Label();
             this.btnStart = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnStop = new System.Windows.Forms.Button();
+            this.comboTypes = new System.Windows.Forms.ComboBox();
+            this.labelEventType = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numKeyFrom)).BeginInit();
             this.keyBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numKeyTo)).BeginInit();
             this.mouseBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numMouseTo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numMouseFrom)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numDuration)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numInterval)).BeginInit();
             this.SuspendLayout();
             // 
             // numKeyFrom
@@ -68,7 +70,6 @@
             this.labelKeyFrom.Size = new System.Drawing.Size(44, 17);
             this.labelKeyFrom.TabIndex = 0;
             this.labelKeyFrom.Text = "From:";
-            this.labelKeyFrom.Click += new System.EventHandler(this.label2_Click);
             // 
             // keyBox
             // 
@@ -147,67 +148,94 @@
             this.numMouseFrom.Size = new System.Drawing.Size(120, 23);
             this.numMouseFrom.TabIndex = 1;
             // 
-            // labelDuration
+            // labelInterval
             // 
-            this.labelDuration.AutoSize = true;
-            this.labelDuration.Location = new System.Drawing.Point(43, 327);
-            this.labelDuration.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labelDuration.Name = "labelDuration";
-            this.labelDuration.Size = new System.Drawing.Size(66, 17);
-            this.labelDuration.TabIndex = 4;
-            this.labelDuration.Text = "Duration:";
+            this.labelInterval.AutoSize = true;
+            this.labelInterval.Location = new System.Drawing.Point(43, 305);
+            this.labelInterval.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelInterval.Name = "labelInterval";
+            this.labelInterval.Size = new System.Drawing.Size(58, 17);
+            this.labelInterval.TabIndex = 4;
+            this.labelInterval.Text = "Interval:";
             // 
-            // numDuration
+            // numInterval
             // 
-            this.numDuration.Location = new System.Drawing.Point(126, 325);
-            this.numDuration.Name = "numDuration";
-            this.numDuration.Size = new System.Drawing.Size(120, 23);
-            this.numDuration.TabIndex = 5;
+            this.numInterval.Location = new System.Drawing.Point(108, 305);
+            this.numInterval.Name = "numInterval";
+            this.numInterval.Size = new System.Drawing.Size(120, 23);
+            this.numInterval.TabIndex = 5;
             // 
             // labelHours
             // 
             this.labelHours.AutoSize = true;
-            this.labelHours.Location = new System.Drawing.Point(253, 327);
+            this.labelHours.Location = new System.Drawing.Point(235, 307);
             this.labelHours.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelHours.Name = "labelHours";
-            this.labelHours.Size = new System.Drawing.Size(38, 17);
+            this.labelHours.Size = new System.Drawing.Size(25, 17);
             this.labelHours.TabIndex = 6;
-            this.labelHours.Text = "(hrs)";
+            this.labelHours.Text = "(s)";
             // 
             // btnStart
             // 
-            this.btnStart.Location = new System.Drawing.Point(369, 319);
+            this.btnStart.Location = new System.Drawing.Point(380, 362);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(116, 33);
             this.btnStart.TabIndex = 7;
             this.btnStart.Text = "Start";
             this.btnStart.UseVisualStyleBackColor = true;
+            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
-            // button2
+            // btnStop
             // 
-            this.button2.Location = new System.Drawing.Point(513, 319);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(116, 33);
-            this.button2.TabIndex = 8;
-            this.button2.Text = "Stop";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnStop.Location = new System.Drawing.Point(513, 362);
+            this.btnStop.Name = "btnStop";
+            this.btnStop.Size = new System.Drawing.Size(116, 33);
+            this.btnStop.TabIndex = 8;
+            this.btnStop.Text = "Stop";
+            this.btnStop.UseVisualStyleBackColor = true;
+            this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
+            // 
+            // comboTypes
+            // 
+            this.comboTypes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboTypes.FormattingEnabled = true;
+            this.comboTypes.Items.AddRange(new object[] {
+            "Keyboard",
+            "Mouse"});
+            this.comboTypes.Location = new System.Drawing.Point(412, 300);
+            this.comboTypes.Name = "comboTypes";
+            this.comboTypes.Size = new System.Drawing.Size(121, 24);
+            this.comboTypes.TabIndex = 9;
+            // 
+            // labelEventType
+            // 
+            this.labelEventType.AutoSize = true;
+            this.labelEventType.Location = new System.Drawing.Point(321, 303);
+            this.labelEventType.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelEventType.Name = "labelEventType";
+            this.labelEventType.Size = new System.Drawing.Size(84, 17);
+            this.labelEventType.TabIndex = 10;
+            this.labelEventType.Text = "Event Type:";
             // 
             // frmEmitEvent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(671, 407);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.labelEventType);
+            this.Controls.Add(this.comboTypes);
+            this.Controls.Add(this.btnStop);
             this.Controls.Add(this.btnStart);
             this.Controls.Add(this.labelHours);
-            this.Controls.Add(this.numDuration);
-            this.Controls.Add(this.labelDuration);
+            this.Controls.Add(this.numInterval);
+            this.Controls.Add(this.labelInterval);
             this.Controls.Add(this.mouseBox);
             this.Controls.Add(this.keyBox);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmEmitEvent";
             this.Text = "Emit Event";
+            this.Load += new System.EventHandler(this.frmEmitEvent_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numKeyFrom)).EndInit();
             this.keyBox.ResumeLayout(false);
             this.keyBox.PerformLayout();
@@ -216,7 +244,7 @@
             this.mouseBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numMouseTo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numMouseFrom)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numDuration)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numInterval)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -233,11 +261,13 @@
         private System.Windows.Forms.NumericUpDown numMouseTo;
         private System.Windows.Forms.Label labelMouseFrom;
         private System.Windows.Forms.NumericUpDown numMouseFrom;
-        private System.Windows.Forms.Label labelDuration;
-        private System.Windows.Forms.NumericUpDown numDuration;
+        private System.Windows.Forms.Label labelInterval;
+        private System.Windows.Forms.NumericUpDown numInterval;
         private System.Windows.Forms.Label labelHours;
         private System.Windows.Forms.Button btnStart;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnStop;
+        private System.Windows.Forms.ComboBox comboTypes;
+        private System.Windows.Forms.Label labelEventType;
     }
 }
 
